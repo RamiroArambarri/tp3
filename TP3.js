@@ -91,7 +91,7 @@ function draw() {
     textFont(museoSlab);
     textAlign(CENTER)
     textSize(32);
-    fill(255)
+    fill(255);
     text('Puntos: ' + puntuacion + '!', width/2, 400);
   }
 }
@@ -196,16 +196,16 @@ function desarrollo() {
   if(tiempo > 37000 && enemigos.length == 0 && !batallaFinal){
     batallaFinal = true;
     //añado al jefe final
-    jefeFinal = new Enemigo3((width-anchoUI)/2 + anchoUI, -200)
+    jefeFinal = new Enemigo3((width-anchoUI)/2 + anchoUI, -200);
     //añado 3 aros de enemigos alrededor
     for(i = 0; i < 9; i ++){
-      enemigos.push(new Enemigo4(2*i*PI/9, 50, 1))
+      enemigos.push(new Enemigo4(2*i*PI/9, 50, 1));
     }
     for(i = 0; i < 10; i ++){
-      enemigos.push(new Enemigo4(2*i*PI/10, 100, -1))
+      enemigos.push(new Enemigo4(2*i*PI/10, 100, -1));
     }
     for(i = 0; i < 15; i ++){
-      enemigos.push(new Enemigo4(2*i*PI/15, 150, 1))
+      enemigos.push(new Enemigo4(2*i*PI/15, 150, 1));
     }
   }
 }

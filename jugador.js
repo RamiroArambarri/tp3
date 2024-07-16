@@ -43,12 +43,12 @@ class Jugador {
       //Animación de explosión
       noFill()
       strokeWeight(10);
-      stroke(255, 0, 0, 100 + (inicioAnimacionGameOver - tiempo + 400)/10)
-      circle(this.mov.pos.x, this.mov.pos.y, constrain(tiempo - inicioAnimacionGameOver - 400, 0, 3000))
-      stroke(255, 0, 0, 100 + (inicioAnimacionGameOver - tiempo + 200)/10)
-      circle(this.mov.pos.x, this.mov.pos.y, constrain(tiempo - inicioAnimacionGameOver - 200, 0, 3000))
-      stroke(255, 0, 0, 100 + (inicioAnimacionGameOver - tiempo)/10)
-      circle(this.mov.pos.x, this.mov.pos.y, tiempo - inicioAnimacionGameOver)
+      stroke(255, 0, 0, 100 + (inicioAnimacionGameOver - tiempo + 400)/10);
+      circle(this.mov.pos.x, this.mov.pos.y, constrain(tiempo - inicioAnimacionGameOver - 400, 0, 3000));
+      stroke(255, 0, 0, 100 + (inicioAnimacionGameOver - tiempo + 200)/10);
+      circle(this.mov.pos.x, this.mov.pos.y, constrain(tiempo - inicioAnimacionGameOver - 200, 0, 3000));
+      stroke(255, 0, 0, 100 + (inicioAnimacionGameOver - tiempo)/10);
+      circle(this.mov.pos.x, this.mov.pos.y, tiempo - inicioAnimacionGameOver);
     }
   }
 
@@ -80,7 +80,7 @@ class Jugador {
           inicioAnimacionGameOver = tiempo;
           sonidoExplosion.play();
         }
-        balasEnemigas.splice(i, 1) //Se elimina la bala en cuestión del arreglo
+        balasEnemigas.splice(i, 1); //Se elimina la bala en cuestión del arreglo
       }
     }
   }

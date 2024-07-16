@@ -110,15 +110,15 @@ class Enemigo2 {
         this.prop.actualizar();
         //Cuando el tiempo alcanza el momento del siguiente disparo, se edispara, y se determina aleatoriamente el momento del siguiente.
         if(tiempo > this.tiempoSigDisparo){
-            this.disparar()
-            this.tiempoSigDisparo = tiempo + random(200, 500)
+            this.disparar();
+            this.tiempoSigDisparo = tiempo + random(200, 500);
         }
     }
     disparar(){
         //Se determina al azar el ángulo del disparo
-        let angulo = random(0, PI)
+        let angulo = random(0, PI);
         //Se crea una nueva bala que se disparará hacia el angulo decidido con una rapidez de 200 px/s
-        balasEnemigas.push(new Bala2(this.prop.mov.pos.x, this.prop.mov.pos.y, 200*cos(angulo), 200*sin(angulo)))
+        balasEnemigas.push(new Bala2(this.prop.mov.pos.x, this.prop.mov.pos.y, 200*cos(angulo), 200*sin(angulo)));
     }
     //Me copio el metodo mostrar del objeto PropEnemigos, poder acceder a él directamente desde el objeto Enemigos1, sin tener que entrar al .prop.
     mostrar() {
@@ -148,7 +148,7 @@ class Enemigo3 {
         //Si es momento de ejecutar el siguiente patrón y no se está ejecutando ningun patrón (patron == 0), se inicia el siguiente patróm
         if(tiempo > this.tiempoSigPatron && this.patron == 0){
             //Se determina al azar cual será el siguiente patrón de ataque
-            this.patron = floor(random(1, 4))
+            this.patron = floor(random(1, 4));
             //Se inicia disparando
             this.tiempoSigDisparo = tiempo;
             //Los patrones duran 5 segundos
@@ -157,7 +157,7 @@ class Enemigo3 {
         
         if(tiempo > this.tiempoSigDisparo && this.patron != 0){
             //Si se está ejecutando un patrón y llega el momento de disparar, se dispara
-            this.disparar()
+            this.disparar();
         }
 
         //Si se está ejecutando un patrón y ya tiene que terminar, termina
@@ -198,7 +198,7 @@ class Enemigo3 {
         //Patrón 3: aleatorio
         if(this.patron == 3){
             //Determino un angulo aleatorio hacia abajo y se lo asigno a las balas que aparecen cada 30 ms.
-            let angulo = random(PI)
+            let angulo = random(PI);
             balasEnemigas.push(new Bala2(this.prop.mov.pos.x, this.prop.mov.pos.y, 300*cos(angulo), 300*sin(angulo)));
             this.tiempoSigDisparo = tiempo + 30;
         }
@@ -208,9 +208,9 @@ class Enemigo3 {
         //Mostrar barra de vida
         noStroke();
         fill(255, 255, 255, 80);
-        rect(anchoUI + 10, height - 30, (width - anchoUI) - 20, 20)
+        rect(anchoUI + 10, height - 30, (width - anchoUI) - 20, 20);
         fill(255, 0, 0, 80);
-        rect(anchoUI + 12, height - 28, constrain(((width - anchoUI) - 24)*this.prop.vida/60, 0, 400), 16)
+        rect(anchoUI + 12, height - 28, constrain(((width - anchoUI) - 24)*this.prop.vida/60, 0, 400), 16);
         //El sprite del jefe se muestra a menos que ya halla muerto. Si no, se muestra la animación de la explosión
         if(!animacionVictoria){
             this.prop.mostrar();
@@ -218,8 +218,8 @@ class Enemigo3 {
                 //Animación de explosión
                 noFill()
                 strokeWeight(10);
-                stroke(255, 0, 0)
-                circle(this.prop.mov.pos.x, this.prop.mov.pos.y, tiempo - inicioAnimacionVictoria, tiempo - inicioAnimacionVictoria)
+                stroke(255, 0, 0);
+                circle(this.prop.mov.pos.x, this.prop.mov.pos.y, tiempo - inicioAnimacionVictoria, tiempo - inicioAnimacionVictoria);
               }
         }
 } 
@@ -228,15 +228,15 @@ class Enemigo4 {
     constructor(fase, distancia, direccion) {
         //Un objeto PropEnemigos para las propiedades básicas. inicia en el 0 0, quieto. Tiene 2 vidas, 30 px de diámetro, no da puntos al matarlo.
         this.prop = new PropEnemigos(0, 0, 0, 0, 2, 30, 0, imagenEnemigo4); 
-        this.fase = fase //Posición del circulo en la que se encontrará
+        this.fase = fase; //Posición del circulo en la que se encontrará
         this.distancia = distancia; //Distancia al centro del círculo
         this.direccion = direccion; //dirección de giro
     }
     actualizar() {
         //Actualización del enemigo
         //La posición en x la controlo directamente fotograma a fotograma de manera que giren alrededor del jefe
-        this.prop.mov.pos.x = jefeFinal.prop.mov.pos.x + this.direccion*this.distancia*cos(tiempo/900 + this.fase)
-        this.prop.mov.pos.y = jefeFinal.prop.mov.pos.y + this.distancia*sin(tiempo/900 + this.fase)
+        this.prop.mov.pos.x = jefeFinal.prop.mov.pos.x + this.direccion*this.distancia*cos(tiempo/900 + this.fase);
+        this.prop.mov.pos.y = jefeFinal.prop.mov.pos.y + this.distancia*sin(tiempo/900 + this.fase);
         //Asigno una velocidad vertical constante
         this.prop.mov.vel.y = 100;
         //Ejecuto las actualiaciones básicas que programé en el objeto PropEnemigos (movimiento y evaluación de daño)
