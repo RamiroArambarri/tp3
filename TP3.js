@@ -1,3 +1,6 @@
+//Juego creado por Ramiro Gabriel Arambarri
+//Video explicativo: https://www.youtube.com/watch?v=lHYiCqaoopA
+
 let jugador;
 let balasBuenas = [];
 let balasEnemigas = [];
@@ -9,7 +12,7 @@ let tiempoInicio; //Millis en el inicio del juego
 let tiempo = 0; //Millis transcurridos desde el inicio del juego
 let tiempoSiguiente = 0; //Momento en el que ocurrirá el que ocurrirá el siguiente evento
 let anchoUI = 200; //Ancho de la UI que está a la izquierda de la pantalla
-let pantalla; //Para la lógica de detados0: pantalla de inicio. 1: nivel. 2: Has muerto. 3: Has ganado.
+let pantalla; //Para la lógica de estados: pantalla de inicio. 1: nivel. 2: Has muerto. 3: Has ganado.
 let animacionGameOver = false; //Variable que se activa cuando el jugador muere, para mostrar la animación de la explosión
 let inicioAnimacionGameOver; //Momento en el que se inicia la enimación de la explosión
 let animacionVictoria = false; //Variable que se activa cuando el jugador muere, para mostrar la animación de la explosión
